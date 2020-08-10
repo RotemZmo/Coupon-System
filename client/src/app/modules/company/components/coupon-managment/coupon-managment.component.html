@@ -1,0 +1,110 @@
+<div *ngIf="!couponId" class="form-group">
+<form [formGroup]="couponForm" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Company</mat-label>
+    <input matInput disabled value="{{company.name}}">
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" [formControl]="title">
+    </mat-form-field></td>
+  </tr></table>
+<p>
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea [formControl]="description" matInput placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit."></textarea>
+  </mat-form-field>
+</p>
+
+<table class="example-full-width" cellspacing="0"><tr>
+  <td><mat-form-field class="example-full-width">
+    <mat-label>Price</mat-label>
+    <input [formControl]="price" matInput type="number">
+  </mat-form-field></td>
+  <td>
+    <mat-form-field class="example-full-width">
+      <mat-label>Amount</mat-label>
+      <input [formControl]="amount" matInput type="number">
+    </mat-form-field>
+  </td>
+</tr></table>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-label>Select Category</mat-label>
+      <mat-select [formControl]="type">
+        <mat-option *ngFor="let selectCategory of catTest" [value]="selectCategory"> {{selectCategory}}
+        </mat-option>
+      </mat-select></td>
+    <td><mat-form-field appearance="fill">
+      <mat-label>Choose an expiration date</mat-label>
+      <input [formControl]="endDate" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Image</mat-label>
+      <input matInput type="url" [formControl]="image">
+    </mat-form-field></td>
+  </tr></table>
+</form>
+<button (click)="addCoupon()" type="button" class="btn btn-primary btn-lg">Add Coupon</button>
+
+</div>
+
+<div *ngIf="couponId" class="form-group">
+  <form [formGroup]="couponForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Company</mat-label>
+      <input matInput disabled value="{{company.name}}">
+    </mat-form-field>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" [formControl]="title">
+      </mat-form-field></td>
+    </tr></table>
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea [formControl]="description" matInput></textarea>
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Price</mat-label>
+      <input [formControl]="price" matInput type="number">
+    </mat-form-field></td>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Amount</mat-label>
+        <input [formControl]="amount" matInput type="number">
+      </mat-form-field>
+    </td>
+  </tr></table>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-label>Select Category</mat-label>
+        <mat-select [formControl]="type">
+          <mat-option *ngFor="let selectCategory of catTest" [value]="selectCategory"> {{selectCategory}}
+          </mat-option>
+        </mat-select></td>
+      <td><mat-form-field appearance="fill">
+        <mat-label>Choose an expiration date</mat-label>
+        <input [formControl]="endDate" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Image</mat-label>
+        <input matInput type="url" [formControl]="image">
+      </mat-form-field></td>
+    </tr></table>
+  </form>
+  <button (click)="updateCoupon()" type="button" class="btn btn-primary btn-lg">Update Coupon</button>
+  </div>
+
+

@@ -1,0 +1,17 @@
+.field{
+width: 100%;
+}
+
+.text-center{
+  background: rgb(132,6,250);
+  background: linear-gradient(207deg, rgba(132,6,250,1) 0%, rgba(227,227,227,0.8995973389355743) 0%);
+}
+
+.log-button{
+  width: 50%!important;
+  height: 3rem!important;
+  min-width: unset!important;
+  font-size: medium;
+  background: rgb(6,142,250);
+  background: radial-gradient(circle, rgba(6,142,250,1) 0%, rgba(148,149,252,1) 74%, rgba(255,155,254,1) 100%);
+}

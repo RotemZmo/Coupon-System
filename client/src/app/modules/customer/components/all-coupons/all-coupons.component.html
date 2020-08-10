@@ -1,0 +1,7 @@
+<div class="card-deck">
+  <article *ngFor="let coupon of coupons">
+    <app-coupon-card [coupon]="coupon" [isOwned]=false></app-coupon-card>
+  </article>
+</div>
+
+

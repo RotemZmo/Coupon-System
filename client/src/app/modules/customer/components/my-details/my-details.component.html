@@ -1,0 +1,24 @@
+<div class="container">
+<mat-card class="example-card">
+
+    <div class="row">
+      <div class="col-5">
+        <mat-card-header>
+          <mat-card-title>{{customer.firstName|titlecase}} {{customer.lastName|titlecase}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="./assets/imgs/avatar-customer.png" alt="User Photo">      </div>
+      <div class="col-8">
+        <p class="details">
+          <mat-list role="list">
+            <mat-list-item role="listitem">First Name: {{customer.firstName|titlecase}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">Last Name: {{customer.lastName|titlecase}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">Email: {{customer.email}}</mat-list-item>
+          </mat-list>
+        </p>
+      </div>
+    </div>
+</mat-card>
+</div>
+

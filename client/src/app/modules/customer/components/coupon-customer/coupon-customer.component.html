@@ -1,0 +1,32 @@
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{coupon.title}}
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Coupon description</h3>
+      <p>{{coupon.description}}</p>
+      <h3 class="my-3">Coupon details</h3>
+      <ul>
+        <li>Price: {{coupon.price|currency}}</li>
+        <li>Valid until: {{coupon.endDate|date}}</li>
+        <li>Coupons left: {{coupon.amount}}</li>
+      </ul>
+    </div>
+
+  </div>
+  <!-- /.row -->
+  <button (click)="buyCoupon()" type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+
+  <!-- Related Projects Row -->
+</div>
+<!-- /.container -->

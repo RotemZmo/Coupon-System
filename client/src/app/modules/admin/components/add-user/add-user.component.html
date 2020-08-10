@@ -1,0 +1,110 @@
+<div *ngIf="cType=='Company'&&userId==undefined" class="form-group">
+  <form [formGroup]="userForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [formControl]="email">
+    </mat-form-field>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [formControl]="name">
+      </mat-form-field></td>
+    </tr><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Fee</mat-label>
+        <input matInput type="number" [formControl]="fee">
+      </mat-form-field></td>
+    </tr></table>
+  <p>
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+
+  </form>
+  <button (click)="addCompany()" type="button" class="btn btn-primary btn-lg">Add Company</button>
+
+  </div>
+
+  <div *ngIf="cType=='Customer'&&userId==undefined" class="form-group">
+    <form [formGroup]="userForm" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [formControl]="email">
+      </mat-form-field>
+
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" [formControl]="firstName">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" [formControl]="lastName">
+        </mat-form-field></td>
+      </tr></table>
+    <p>
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+
+    </form>
+    <button (click)="addCustomer()" type="button" class="btn btn-primary btn-lg">Add Customer</button>
+
+    </div>
+
+    <div *ngIf="cType=='Company'&&userId!=undefined" class="form-group">
+      <form [formGroup]="userForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [formControl]="email" value="{{company.email}}">
+        </mat-form-field>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" disabled value="{{company.name}}">
+          </mat-form-field></td>
+        </tr>
+        <tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Fee</mat-label>
+            <input matInput type="number" [formControl]="fee" value="{{company.fee}}">
+          </mat-form-field></td>
+        </tr></table>
+      </form>
+      <button (click)="updateCompany()" type="button" class="btn btn-primary btn-lg">Update Company</button>
+
+      </div>
+
+      <div *ngIf="cType=='Customer'&&userId!=undefined" class="form-group">
+        <form [formGroup]="userForm" class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [formControl]="email" value="{{customer.email}}">
+          </mat-form-field>
+
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>First Name</mat-label>
+              <input matInput type="text" [formControl]="firstName" value="{{customer.firstName}}">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Last Name</mat-label>
+              <input matInput type="text" [formControl]="lastName" value="{{customer.lastName}}">
+            </mat-form-field></td>
+          </tr></table>
+        </form>
+        <button (click)="updateCustomer()" type="button" class="btn btn-primary btn-lg">Update Customer</button>
+
+        </div>

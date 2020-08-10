@@ -1,0 +1,45 @@
+<nav class="navbar navbar-dark bg-primary">
+
+  <form [formGroup]="filterForm" class="form-inline">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter By
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button (click)="filterByPrice()" class="dropdown-item" >Price</button>
+        <button (click)="filterByCategory()" class="dropdown-item" >Category</button>
+        <button (click)="unfilter()"class="dropdown-item" >No Filter</button>
+      </div>
+    </div>
+    <label *ngIf="filterByCategoryBool" for="exampleFormControlSelect1"> Select Category</label>
+    <select *ngIf="filterByCategoryBool" [formControl]="type" class="form-control" id="exampleFormControlSelect1">
+      <option *ngFor="let selectCategory of categories" [value]="selectCategory"> {{selectCategory}}</option>
+    </select>
+    <div *ngIf="filterByPriceBool" class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">$</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Max Price" aria-label="Max Price" aria-describedby="basic-addon1" [formControl]="maxPrice">
+    </div>
+  </form>
+  <div *ngIf="filterByCategoryBool" class="form-inline">
+    <button (click)="getCouponsByCategory()"class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+  </div>
+  <div *ngIf="filterByPriceBool" class="form-inline">
+    <button (click)="getCouponsByMaxPrice()"class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+  </div>
+</nav>
+<div class="row" id="coupons">
+  <ng-container *ngIf="!filtered">
+  <article  *ngFor="let coupon of myCoupons">  <div class="col-md-4 mb-5">
+        <app-coupon-card [coupon]="coupon" [isOwned]=true></app-coupon-card>
+  </div>
+  </article>
+</ng-container >
+<ng-container *ngIf="filtered">
+  <article  *ngFor="let coupon of myFilteredCoupons">  <div class="col-md-4 mb-5">
+    <app-coupon-card [coupon]="coupon" [isOwned]=true></app-coupon-card>
+  </div>
+  </article>
+</ng-container>
+</div>

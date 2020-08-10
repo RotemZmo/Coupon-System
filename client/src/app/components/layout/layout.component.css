@@ -1,0 +1,22 @@
+.page-holder {
+  min-height: 100vh;
+}
+
+.bg-cover {
+  background-color: beige;
+  background-size: cover !important;
+}
+
+.page-footer{
+  background-color :#1c2a48 ;
+}
+
+.footer-copyright{
+  background-color: #1c2331 ;
+  text-align: center;
+  color: aliceblue;
+}
+
+.row{
+  color: aliceblue;
+}

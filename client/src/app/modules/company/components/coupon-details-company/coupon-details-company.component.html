@@ -1,0 +1,46 @@
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{coupon.title}}
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="{{coupon.image}}" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Coupon description</h3>
+      <p>{{coupon.description}}</p>
+      <h3 class="my-3">Coupon details</h3>
+      <ul>
+        <li>Price: {{coupon.price|currency}}</li>
+        <li>Valid until: {{coupon.endDate|date}}</li>
+        <li>Coupons left: {{coupon.amount}}</li>
+        <li>Is Active: {{coupon.active}}</li>
+      </ul>
+    </div>
+
+  </div>
+  <!-- /.row -->
+  <div >
+    <br>
+    <span class="buttons">
+    <button (click)="deleteCoupon()" type="button" class="btn btn-danger btn-lg">Delete Coupon</button>
+  </span>
+    <span *ngIf="coupon.active" class="buttons">
+      <button (click)="deactivateCoupon()" type="button" class="btn btn-warning btn-lg">Deactivate Coupon</button>
+    </span>
+    <span  *ngIf="!coupon.active" class="buttons">
+    <button (click)="activateCoupon()" type="button" class="btn btn-success btn-lg">Activate Coupon</button>
+  </span>
+  <span class="buttons">
+    <button (click)="updateCoupon()"  type="button" class="btn btn-primary btn-lg">Update Coupon</button>
+  </span>
+  </div>
+  <!-- Related Projects Row -->
+</div>
+<!-- /.container -->
